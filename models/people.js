@@ -18,9 +18,9 @@ const peopleSchema = new Schema({
     date: { type: String, required: true },
     time: { type: String, required: true },
     registrations: {
-      name: { type: Array, required: true },
-      phone: { type: Array, required: true },
-      email: { type: Array, required: true }
+      name: Array,
+      phone: Array,
+      email: Array
     }
   }
 });
