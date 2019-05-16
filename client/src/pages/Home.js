@@ -7,7 +7,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-class Books extends Component {
+class Home extends Component {
   state = {
     books: [],
     title: "",
@@ -90,13 +90,13 @@ class Books extends Component {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Home Page</h1>
             </Jumbotron>
             {this.state.books.length ? (
               <List>
                 {this.state.books.map(book => (
                   <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                    <Link to={"/home/" + book._id}>
                       <strong>
                         {book.title} by {book.author}
                       </strong>
@@ -115,4 +115,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Home;
