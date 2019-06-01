@@ -12,11 +12,11 @@ const peopleSchema = new Schema({
   profilePic: String,
   events: {
     address: String,
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    zip: { type: Number, required: true },
-    date: { type: String, required: true },
-    time: { type: String, required: true },
+    city: String,
+    state: String,
+    zip: String,
+    date: String,
+    time: String,
     registrations: {
       name: Array,
       phone: Array,

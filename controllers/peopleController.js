@@ -28,5 +28,10 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  } //,
+  // uploadPic: function(file) {
+  //   cloudinary.v2.uploader.upload(file, function(error, result) {
+  //     console.log(result, error);
+  //   });
+  // }
 };
