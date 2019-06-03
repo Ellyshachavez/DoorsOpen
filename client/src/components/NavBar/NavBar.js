@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import "./NavBar.css";
+import { Link } from 'react-router-dom';
+import UserContext from '../../utils/UserContext';
 
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      login: false,
-      user: ""
-    }
-  };
 
   logout = (event) => {
     event.preventDefault();
@@ -22,26 +17,39 @@ class NavBar extends Component {
   };
 
   render() {
+  
       return (
-          <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="/">
-              The Doors Open
-            </a>
-            <span className="loginUser">
-            {this.props.loggedIn ? `Hi ${this.props.firstName}` : null}
-          </span>
-          {this.props.loggedIn && this.props.firstName 
-          ? (<a className="navbar-brand" href="/">
-          Sign Out
-        </a>
-          ): <a className="navbar-brand" href="/login">
-          Sign In
-        </a>}
-          <a className="navbar-brand" href="/join">
-              join
-            </a>
+        <UserContext.Consumer>
+        {({user}) => (
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <Link className="navbar-brand" to="/">
+              Door's Open
+            </Link>
+            {user ? (
+              
+              <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <div>Hello {user.firstName}, </div>
+              </li>
 
+              <li className="nav-item">
+                <Link className="nav-link js-scroll-trigger" to={"/calendar/"}>Calendar</Link>
+              </li>
+              <li className="nav-item">
+                  <a className="nav-link" href="/logout"><i className="fas fa-sign-out-alt"></i> Log Out</a>
+              </li>
+            </ul>
+            ): (
+              <div className="navbar-nav" id="doorsOpen">
+              <Link className="nav-link" to="/"></Link>
+                <Link className="nav-link" to="/join">Join</Link>
+                <Link className="nav-link" to="/login">Login</Link>
+              </div>
+            )}
           </nav>
+        )}
+      </UserContext.Consumer>
+  
         );
   }
 

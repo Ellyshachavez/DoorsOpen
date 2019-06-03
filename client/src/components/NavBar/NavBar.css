@@ -1,25 +1,29 @@
-#nav {
+/* #nav {
     width: auto;
     margin-bottom: 0px;
-    }
+    } */
     
     /* unvisited link */
-    .navlink a:link {
+    /* .navlink a:link {
         color: white;
-    }
+    } */
     
     /* visited link */
-    .navlink a:visited {
+    /* .navlink a:visited {
         color: whitesmoke;
-    }
+    } */
     
     /* mouse over link */
-    .navlink a:hover {
+    /* .navlink a:hover {
         color: #2d71b5;
     }
     
+
+    #doorsOpen {
+        margin-left: 1000px;
+    }
     /* selected link */
-    .navlink a:active {
+    /* .navlink a:active {
         color: whitesmoke;
     }
     
@@ -30,3 +34,7 @@
         color: whitesmoke;
         margin-right: 5px
     }
+
+    nav{
+        color: #028090;
+    }  */

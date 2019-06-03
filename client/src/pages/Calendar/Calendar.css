@@ -1,0 +1,24 @@
+/* @font-face {
+  
+    font-family: tokyoRegular;
+    /* src: url(../../Font/TTF/TokyoRegular-Regular.ttf); */
+  
+  
+
+.jumbotron {
+    margin-top: 12%;
+    background-color: #f87956;
+    background-image: url("");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;    
+}
+
+
+img.imgCalendar {
+    position: relative;
+    top: 25%;
+    left: 18%;
+    opacity: 1;
+  }

@@ -21,11 +21,24 @@
   },
   "dependencies": {
     "@restart/context": "2.1.2",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "bootstrap": "3",
+    "dotenv": "^8.0.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16",
-    "react-bootstrap": "^1.0.0-beta.8"
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.1.1",
+    "path": "^0.12.7",
+    "react": "^16.8.6",
+    "react-big-calendar": "^0.21.0",
+    "react-dnd": "^7.4.5",
+    "react-dnd-html5-backend": "^7.4.4",
+    "react-dom": "^16.8.6"
   },
   "repository": {
     "type": "git",
