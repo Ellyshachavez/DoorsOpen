@@ -10,10 +10,14 @@ const url = "https://api.cloudinary.com/v1_1/dzbqct4oi/image/upload";
 
 class Join extends React.Component {
   state = {
+    
     email: "",
     firstName: "",
     lastName: "",
     company: "",
+    selectedOption: "agent",
+    agent: true,
+    loanOfficer: false,
     title: "",
     password: "",
     profilePic: null,
@@ -31,17 +35,54 @@ class Join extends React.Component {
   handleSignup = (event) => {
     event.preventDefault()
     const { history } = this.props;
-    const { email, password, firstName, lastName, company, title, profilePic } = this.state;
+    const { email, password, firstName, lastName, company, profilePic } = this.state;
     if (this.state.firstName && this.state.email) {
       console.log(this.state.profilePic);
-    API.join({ email, password, firstName, lastName, company, title, profilePic })
+      if (this.state.selectedOption === "agent") {
+      API.join({ 
+      agent: true,
+      loanOfficer: false,
+      firstName: firstName,
+      lastName: lastName,
+      company: company,
+      email: email,
+      password: password,
+      profilePic: profilePic
+    })
       .then(res => history.push('/login') )
       .catch(err => console.log(err))
+      } else {
+        API.join ({
+          agent: false,
+          loanOfficer: true,
+          firstName: firstName,
+          lastName: lastName,
+          company: company,
+          email: email,
+          password: password,
+          profilePic: profilePic
+        })
+        .then(res => history.push('/login') )
+        .catch(err => console.log(err))
+      }
+    }
   }
-}
+
+
+
+
+handlePicChange = responseUrl => {
+  this.setState({ profilePic: responseUrl });
+};
+
+handleOptionChange = changeEvent => {
+  this.setState({
+    selectedOption: changeEvent.target.value
+  });
+};
 
   render() {
-    const { email, password, firstName, lastName, company, title} = this.state;
+    const { email, password, firstName, lastName, company} = this.state;
 
     return (
 
@@ -91,13 +132,26 @@ class Join extends React.Component {
                   placeholder="Company Name"
                 />
                  <input
-                  value={title}
-                  onChange={this.handleChange}
-                  name="title"
-                  type="text"
-                  className="form-control register"
-                  placeholder="Agent or Loan Officer"
-                />
+                type="radio"
+                name="gender"
+                value="agent"
+                checked={this.state.selectedOption === "agent"}
+                className="form-check-input"
+                onChange={this.handleOptionChange}
+              />{" "}
+              <div>Agent</div>
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="loanOfficer"
+                className="form-check-input"
+                checked={this.state.selectedOption === "loanOfficer"}
+                onChange={this.handleOptionChange}
+              />{" "}
+              <div>Loan Officer</div>
+
+              <br />
                 
 
                 <input id="email"
@@ -117,6 +171,7 @@ class Join extends React.Component {
                  onChange={this.handleChange} 
                  required /> 
 
+              {/* <uploadPic /> */}
               <input
                 type="file"
                 id="avatar"
@@ -132,7 +187,7 @@ class Join extends React.Component {
                         "Content-Type": "multipart/form-data"
                       }
                     })
-                    .then(res => (this.state.profilePic = res.data.url));
+                    .then(res => this.handlePicChange(res.data.url));
                 }}
               />
 

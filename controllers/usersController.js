@@ -29,12 +29,14 @@ module.exports = {
             });
           }
 
-          const { firstName, email, _id: id } = dbModel;
+          const { firstName,selectedOption, profilePic, email, _id: id } = dbModel;
 
-          const token = jwt.sign({email, id, firstName}, 'my-website-secrete');
+          const token = jwt.sign({email, id, firstName, selectedOption, profilePic}, 'my-website-secrete');
           return res.json({
             id,
             firstName,
+            selectedOption,
+            profilePic,
             email,
             token
           })
@@ -44,9 +46,9 @@ module.exports = {
   },
   create: function(req, res) {
     const password = bcrypt.hashSync(req.body.password, 10);
-    const {email, firstName, lastName, profilePic, company, title} = req.body;
+    const {email, firstName, lastName, profilePic, company, selectedOption} = req.body;
     db.User
-      .create({ firstName, lastName, company, title, profilePic, email, password})
+      .create({ firstName, lastName, company, selectedOption, profilePic, email, password})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

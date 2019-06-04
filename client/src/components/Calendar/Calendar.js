@@ -17,7 +17,7 @@ class Selectable extends Component {
       {
         start: new Date(),
         end: new Date(moment().add(1, "days")),
-        title: "Some title"
+        title: "Open House"
       }
     ]
   };
