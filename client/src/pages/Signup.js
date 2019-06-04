@@ -7,6 +7,9 @@ import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 //var cloudinary = require("cloudinary").v2;
 
+const axios = require("axios");
+
+const url = "https://api.cloudinary.com/v1_1/dzbqct4oi/image/upload";
 //const cloudinary = require("cloudinary-core").Cloudinary.new();
 //const cloudinary = require("cloudinary-core");
 
@@ -19,26 +22,9 @@ class Signup extends Component {
     company: "",
     email: "",
     password: "",
-    profilePic: null
+    profilePic: null,
+    selectedOption: "agent"
   };
-
-  // componentDidMount() {
-  //   this.loadBooks();
-  // }
-
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -47,37 +33,43 @@ class Signup extends Component {
     });
   };
 
-  handleFileChange = event => {
+  handleOptionChange = changeEvent => {
     this.setState({
-      profilePic: event.target.files[0]
+      selectedOption: changeEvent.target.value
     });
+  };
+
+  handlePicChange = responseUrl => {
+    this.setState({ profilePic: responseUrl });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.firstName && this.state.email) {
-      //trying to get the picture to upload
-      // cloudinary.v2.uploader.upload(this.state.profilePic, function(
-      //   error,
-      //   result
-      // ) {
-      //   console.log(result, error);
-      // });
-
-      API.savePic({ image: this.state.profilePic.name });
       console.log(this.state.profilePic);
-      API.savePeople({
-        agent: true,
-        loanOfficer: false,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        company: this.state.company,
-        email: this.state.email,
-        password: this.state.password
-        //profilePic: this.state.profilePic
-      })
-        // .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+      if (this.state.selectedOption === "agent") {
+        API.savePeople({
+          agent: true,
+          loanOfficer: false,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          company: this.state.company,
+          email: this.state.email,
+          password: this.state.password,
+          profilePic: this.state.profilePic
+        }).catch(err => console.log(err));
+      } else {
+        API.savePeople({
+          agent: false,
+          loanOfficer: true,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          company: this.state.company,
+          email: this.state.email,
+          password: this.state.password,
+          profilePic: this.state.profilePic
+        }).catch(err => console.log(err));
+      }
     }
   };
 
@@ -91,8 +83,27 @@ class Signup extends Component {
               <h1>Welcome to The Doors Open!</h1>
             </Jumbotron>
             <form>
-              {/* encType="multipart/form-data" */}
-              <div className="dropdown">
+              <input
+                type="radio"
+                name="gender"
+                value="agent"
+                checked={this.state.selectedOption === "agent"}
+                className="form-check-input"
+                onChange={this.handleOptionChange}
+              />{" "}
+              Agent
+              <br />
+              <input
+                type="radio"
+                name="gender"
+                value="loanOfficer"
+                className="form-check-input"
+                checked={this.state.selectedOption === "loanOfficer"}
+                onChange={this.handleOptionChange}
+              />{" "}
+              Loan Officer
+              <br />
+              {/* <div className="dropdown">
                 <button
                   className="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -114,7 +125,7 @@ class Signup extends Component {
                     Loan Officer
                   </a>
                 </div>
-              </div>
+              </div> */}
               <br />
               <Input
                 value={this.state.firstName}
@@ -149,13 +160,22 @@ class Signup extends Component {
               Profile Picture: <br />
               {/* <uploadPic /> */}
               <input
-                // value={this.state.profilePic}
-                onChange={this.handleFileChange}
-                name="profilePic"
                 type="file"
-                className="file-upload"
-                data-cloudinary-field="image_id"
-                data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
+                id="avatar"
+                name="avatar"
+                accept="image/png, image/jpeg"
+                onChange={e => {
+                  const formData = new FormData();
+                  formData.append("file", e.target.files[0]);
+                  formData.append("upload_preset", "vdxg70on");
+                  return axios
+                    .post(url, formData, {
+                      headers: {
+                        "Content-Type": "multipart/form-data"
+                      }
+                    })
+                    .then(res => this.handlePicChange(res.data.url));
+                }}
               />
               <FormBtn
                 disabled={!(this.state.firstName && this.state.email)}

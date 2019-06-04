@@ -54,15 +54,3 @@ export function FormBtn(props) {
     </button>
   );
 }
-
-export function uploadPic() {
-  return (
-    <input
-      name="file"
-      type="file"
-      className="file-upload"
-      data-cloudinary-field="image_id"
-      data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
-    />
-  );
-}

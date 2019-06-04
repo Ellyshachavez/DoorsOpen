@@ -16,9 +16,13 @@ export default {
   // Saves a people to the database
   savePeople: function(peopleData) {
     return axios.post("/api/people", peopleData);
-  },
-  savePic: function(file) {
-    console.log("got to API.js file");
-    return axios.post("/api/pics", file);
   }
+  // savePic: function(file) {
+  //   const formData = new FormData();
+  //   formData.append("file", file);
+  //   console.log("got to API.js file");
+  //   return axios.post("/api/pics", formData, {
+  //     headers: { "Content-Type": "multipart/form-data" }
+  //   });
+  // }
 };
