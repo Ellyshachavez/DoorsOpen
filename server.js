@@ -1,10 +1,13 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const jwt = require("jsonwebtoken");
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Static assets
+app.use(express.static("./client/build"));
+app.use(express.static('./client/public'))
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
