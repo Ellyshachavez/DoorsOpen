@@ -37,18 +37,6 @@ class Selectable extends Component {
         const oldEvents = this.state.events;
         const sameDayEvents = oldEvents.filter(event => moment(event.start).format("YYYY/MM/DD") === moment(newEvent.start).format("YYYY/MM/DD"));
         const timeComparison = sameDayEvents.filter(event => ((newEvent.end > event.start && newEvent.start < event.end) && event.oldEvent));
-        // const title = window.prompt('New Open House Event');
-        // if (title)
-        //   this.setState({
-        //     events: [
-        //       ...this.state.events,
-        //       {
-        //         start,
-        //         end,
-        //         title: title,
-        //       },
-        //     ],
-        //   });
           timeComparison.length > 0 ? newEvent.slotAvailable = false : newEvent.slotAvailable = true;
           return newEvent;
     };
