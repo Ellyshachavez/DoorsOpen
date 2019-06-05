@@ -13,7 +13,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
     "build-big-calendar-css": "lessc --autoprefix=\"ie >= 10, last 2 versions\" src/components/BigCalendar/styles.less ./node_modules/react-big-calendar/lib/css/react-big-calendar.css"
-
   },
   "author": "",
   "license": "ISC",
