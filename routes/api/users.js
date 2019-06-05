@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const controller = require("../../controllers/controller")
 const usersController = require("../../controllers/usersController");
 
 // Matches with "/api/users"
@@ -7,6 +8,6 @@ router.route("/join")
 
 
 router.route("/login")
-  .post(usersController.findOne);
+  .post(usersController.findOne, controller.findOne, controller.update);
 
 module.exports = router;
