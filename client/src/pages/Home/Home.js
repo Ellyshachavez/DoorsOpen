@@ -9,6 +9,8 @@ import './Home.css';
 
 
 
+
+
 class Home extends Component {
   static contextType = UserContext;
 
@@ -29,6 +31,7 @@ class Home extends Component {
 
   }
 
+  
 
 
   render() {
@@ -38,6 +41,7 @@ class Home extends Component {
       <div className="Main">
         <Container fluid>
         <Row>
+          <Col size= "3"></Col>
           <Col size ="6">
           <Jumbotron>
               <h1>The Doors Open</h1>
