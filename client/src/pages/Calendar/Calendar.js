@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Row, Col, Divider, Layout} from 'antd';
-import { Link, Redirect } from "react-router-dom";
+import {Row, Col, Layout} from 'antd';
+import {Redirect } from "react-router-dom";
 import UserContext from '../../utils/UserContext';
 import API from "../../utils/API";
 import "./Calendar.css";
