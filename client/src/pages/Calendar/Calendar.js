@@ -1,45 +1,66 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {Row, Col, Divider, Layout} from 'antd';
+import { Link, Redirect } from "react-router-dom";
+import UserContext from '../../utils/UserContext';
 import API from "../../utils/API";
-import 'react-big-calendar/lib/css/react-big-calendar.css'
-import Selectable from '../../components/Calendar'
-// import EditorFormatUnderlined from 'material-ui/SvgIcon';
 import "./Calendar.css";
+import Selectable from "../../components/Calendar";
+
+const {
+    Header, Footer, Sider, Content,
+} = Layout;
 
 
 class Calendar extends Component {
-  state = {
-    events: []
-  };
+  static contextType = UserContext;
 
-componentDidMount() {
-  this.loadEvents();
-}
+    constructor(props) {
+        super(props);
 
-loadEvents = () => {
-  API.getEvents(this.props.match.params.userId)
-    .then(res => {
-      console.log(res)
-      this.setState({ events: res.data })
-    })
-    console.log(this.state.events)
-}
+        this.state = {
+            timeSlots: [],
+        };
+    }
 
-
-render() {
-
-  return (
-    <div className="app">
-      <div className="jumbotron">
-        <div className="container">
-          <img className="imgCalendar" src="" alt=""/>   
+    loadEvents = () => {
+      const { user } = this.context;
   
-        </div>
-      </div>
-      <Selectable events={this.state.events}
-      history={this.props.history} />
-    </div>
-  )
-}
+      if (user) {
+        API.getEvents(user.token)
+          .then(res =>
+            this.setState({ events: res.data })
+          )
+          .catch(err => console.log(err));
+      }
+    };
+  
+
+
+    handleTimeSlots = (value) => {
+        this.setState({timeSlots: value});
+    };
+
+    render() {
+      const { user } = this.context;
+      return user 
+        ? (
+                <>
+                    <div>
+                        <Row type="flex" className="calendar-header">
+                            <Col span={4} offset={20} className="header-text">Open House Calendar</Col>
+                        </Row>
+
+                        <Row>
+                            <Col span={20} offset={2}   >
+                                <Selectable />
+                            </Col>
+                        </Row>
+                    </div>
+                </>
+                 )
+                 : <Redirect to="/login"/>
+             
+    };
 }
 
 export default Calendar;

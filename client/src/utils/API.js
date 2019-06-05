@@ -11,7 +11,7 @@ export default {
   },
   // Gets the book with the given id
   getEvent: function(id) {
-    return axios.get("/api/home/" + id);
+    return axios.get("/api/calendar/" + id);
   },
   // Deletes the book with the given id
   deleteLead: function(id) {

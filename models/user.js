@@ -5,7 +5,7 @@ const userSchema = new Schema({
   firstName: { type: String},
   lastName: { type: String},
   company: { type: String},
-  title: { type: String},
+  selectedOption: { type: String},
   email: {
     type: String,
     unique: true,

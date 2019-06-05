@@ -1,24 +1,29 @@
-/* @font-face {
-  
-    font-family: tokyoRegular;
-    /* src: url(../../Font/TTF/TokyoRegular-Regular.ttf); */
-  
-  
+body {
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto","Helvetica Neue","Trebuchet MS","Segoe",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
 
-.jumbotron {
-    margin-top: 12%;
-    background-color: #f87956;
-    background-image: url("");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;    
+.container {
+    height: 100%;
+    width: 100%;
 }
 
 
-img.imgCalendar {
-    position: relative;
-    top: 25%;
-    left: 18%;
-    opacity: 1;
-  }
+.calendar-header {
+    border-bottom-width: 8px;
+    border-bottom-color: #2f6492;
+    border-bottom-style: solid;
+    background-color: #4887bd;
+    height: 90px;
+}
+
+.header-text {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}

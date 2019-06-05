@@ -32,7 +32,7 @@ class App extends Component {
           <Route path='/login' component={Login} />
           <Route path='/join' component={Join} />
           <Route path='/passwordrequest' component={PassReq}/>
-          <Route exact path="/home/:id" component={Calendar} />
+          <Route exact path="/calendar/:id" component={Calendar} />
           <Route path='/Calendar' component={Calendar} />
           <Route component={NoMatch} />
           </Switch>
