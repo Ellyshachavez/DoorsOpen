@@ -22,7 +22,7 @@ class NavBar extends Component {
         <UserContext.Consumer>
         {({user}) => (
           <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-          <img src= {doorIcon}/>
+          <img src= {doorIcon} alt="Door Logo"/>
             <Link className="navbar-brand" to="/">
               Door's Open
             </Link>
@@ -30,9 +30,11 @@ class NavBar extends Component {
               
               <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <div>Hello {user.firstName}, </div>
+                <div className="hello">Hello {user.firstName}! </div>
               </li>
-
+              <li className="nav-item navbar-nav">
+                <Link className="nav-link js-scroll-trigger rightSide" to={"/register/"}>Form</Link>
+              </li>
               <li className="nav-item navbar-nav">
                 <Link className="nav-link js-scroll-trigger rightSide" to={"/calendar/"}>Calendar</Link>
               </li>

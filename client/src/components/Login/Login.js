@@ -48,11 +48,6 @@ class Login extends React.Component {
        
 
         <form className="form-signin">
-          {/* {this.state.message !== '' &&
-            <div className="alert alert-danger alert-dismissible" role="alert">
-              {this.state.message}
-            </div>
-          } */}
             <h2 className="form-signin-heading">Please sign in</h2>
               <label htmlFor="name">E-mail </label>
                 <input id="email"
@@ -88,8 +83,6 @@ class Login extends React.Component {
                 {message}
               </div>
             )}
-            <pre>{JSON.stringify(this.state, null, 2)}</pre>
-
             </form>
           </div> 
           </div>

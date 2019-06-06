@@ -9,30 +9,13 @@ module.exports = (app) => {
 
   // Database Routes
 
-  // Find User by id
-  app.get("/user/:id", function (req, res) {
-    db.User
-      .findById(req.params.id)
-      .populate("leads")
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  });
-
-  // Update user info
-  app.put("/user/:id", function (req, res) {
-    db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  });
-
   //Password reset info
   app.post("/sendPassEmail", function (req, res) {
     console.log("sendPassRout", req.body.email)
     db.User.findOne({"email": req.body.email})
-      .then(dbUser => {
-        console.log("User from db:  ", dbUser)
-        if (dbUser) {
+      .then(dbModel => {
+        console.log("User from db:  ", dbModel)
+        if (dbModel) {
           var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {

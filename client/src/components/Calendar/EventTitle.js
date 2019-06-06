@@ -22,7 +22,7 @@ class EventTitle extends Component{
                 <div style={{ position: "absolute", top: "-1%", right: "1%", height: "10px", width: "10px" }}>
                     <Icon style={{height: "20px", align: "right"}} type="close-circle" onClick={() => {event.onClick(event.eventId)}}/>
                 </div>
-                <span style={{ fontSize: '14px' }}>{ event.slotAvailable ? "(event.title)" : 'unavailable' }</span>
+                <span style={{ fontSize: '14px' }}>{ event.slotAvailable ? "Open House Event" : 'unavailable' }</span>
                 
             </div>
         );

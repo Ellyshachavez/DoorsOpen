@@ -14,14 +14,15 @@ body {
 
 .calendar-header {
     border-bottom-width: 8px;
-    border-bottom-color: #2f6492;
+    border-bottom-color: #FAC05E;
     border-bottom-style: solid;
-    background-color: #4887bd;
-    height: 90px;
+    background-color: #FAC05E;
+    height: 100px;
 }
 
 .header-text {
-    margin-top: 30px;
+    margin-top: 10px;
+    text-align: center;
     font-size: 20px;
     font-weight: bold;
     color: #fff;

@@ -1,18 +1,18 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/booksController");
+const registrationController = require("../../controllers/registrationController");
 const isAuthenticated = require("../../controllers/auth");
 
 // Matches with "/api/books"
 router.route("/")
-  .get(isAuthenticated, booksController.findAll)
-  .post(booksController.create);
+  .get(isAuthenticated, regisstrationController.findAll)
+  .post(registrationController.create);
 
 // Matches with "/api/books/:id"
 router
   .route("/:id")
-  .get(booksController.findById)
-  .put(booksController.update)
-  .delete(booksController.remove);
+  .get(registrationController.findById)
+  .put(registrationController.update)
+  .delete(registrationController.remove);
 
 module.exports = router;
 

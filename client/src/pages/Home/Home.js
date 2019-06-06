@@ -43,7 +43,7 @@ class Home extends Component {
           <Col size= "3"></Col>
           <Col size ="6">
           <Jumbotron>
-              <h1>The Doors Open</h1>
+              <h1 className="jumboText">The Door's Open</h1>
             </Jumbotron>
           </Col>
         </Row>        
@@ -54,7 +54,7 @@ class Home extends Component {
 <Container>
   <Row>
     <Col size="6"></Col>
-<section className="bg-primary" id="about">
+    <section className="bg-primary" id="about">
           <div className="container">
               <div className="row">
                   <div className="col-lg-8 mx-auto text-center">

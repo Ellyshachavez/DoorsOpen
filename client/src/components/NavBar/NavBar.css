@@ -4,8 +4,15 @@ html {
   height: 100%;
 }
 
+.hello {
+  margin-top: 5px;
+  font-size: 1rem;
+}
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+.navbar {
+  margin-bottom: 0;
 }
 
 hr {
@@ -66,6 +73,7 @@ section {
 .section-heading {
   margin-top: 0;
 }
+
 
 ::-moz-selection {
   color: #fff;

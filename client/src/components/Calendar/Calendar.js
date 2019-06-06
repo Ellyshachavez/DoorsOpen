@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import moment from 'moment';
 import NoSSR from 'react-no-ssr';
 import BigCalendar from 'react-big-calendar';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import uuid from 'uuid/v4';
-import {Select} from "antd";
+// import {Select} from "antd";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./Calendar.css";
@@ -12,9 +11,9 @@ import constants from '../../Services/constant';
 import Event from '../../Services/Event';
 import EventTitle from "./EventTitle";
 
-const Option = Select.Option;
-const DragAndDropCalendar = withDragAndDrop(BigCalendar);
+
 const localize = BigCalendar.momentLocalizer(moment);
+
 
 class Selectable extends Component {
     constructor(props) {
@@ -129,8 +128,8 @@ class Selectable extends Component {
         const {events} = this.state;
         const nextEvents = events.map(existingEvent => {
             return existingEvent.id === event.id
-                ? this.checkAvailability({...existingEvent, start, end})
-                : existingEvent
+                // ? this.checkAvailability({...existingEvent, start, end})
+                // : existingEvent
         });
 
         this.setState({
@@ -182,7 +181,7 @@ class Selectable extends Component {
         });
     };
 
-    
+ 
 
     render() {
         return (
