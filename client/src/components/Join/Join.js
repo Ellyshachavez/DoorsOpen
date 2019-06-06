@@ -91,20 +91,7 @@ handleOptionChange = changeEvent => {
           <NavBar />
 
         <div className="container">
-        <form className="form-signin">
-        {/* <div>
-              {this.state.message !== ''
-              ? <div>
-              {this.state.message.toString().includes('Successful') ?
-                  (<div className="alert alert-success" role="alert">
-                    {this.state.message} Please  <Link to="/login">Click Here </Link> to Login
-                  </div>):(<div className="alert alert-danger" role="alert">
-                    {this.state.message}
-                  </div>)}
-              </div>
-              :null
-              }</div> */}
-    
+        <form className="form-signin space">
                 <h2 className="form-signin-heading">Register</h2>
                 <input
                    value={firstName}
@@ -137,20 +124,19 @@ handleOptionChange = changeEvent => {
                 name="gender"
                 value="agent"
                 checked={this.state.selectedOption === "agent"}
-                className="form-check-input"
+                className="form-check-input radio-inline"
                 onChange={this.handleOptionChange}
               />{" "}
-              <div>Agent</div>
-              <br />
+              <label className="inline">Agent</label>
               <input
                 type="radio"
                 name="gender"
                 value="loanOfficer"
-                className="form-check-input"
+                className="form-check-input radio-inline"
                 checked={this.state.selectedOption === "loanOfficer"}
                 onChange={this.handleOptionChange}
               />{" "}
-              <div>Loan Officer</div>
+              <label className="inline">Loan Officer</label>
 
               <br />
                 
@@ -191,9 +177,7 @@ handleOptionChange = changeEvent => {
                     .then(res => this.handlePicChange(res.data.url));
                 }}
               />
-
                 <button onClick={this.handleSignup}>Sign up</button>
-                <pre>{JSON.stringify(this.state, null, 2)}</pre>
               </form>
         </div>
     </div>

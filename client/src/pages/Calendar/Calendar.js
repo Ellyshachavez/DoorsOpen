@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import {Row, Col, Layout} from 'antd';
+import {Row, Col} from 'antd';
 import {Redirect } from "react-router-dom";
 import UserContext from '../../utils/UserContext';
 import API from "../../utils/API";
 import "./Calendar.css";
 import Selectable from "../../components/Calendar";
 
-const {
-    Header, Footer, Sider, Content,
-} = Layout;
 
 
 class Calendar extends Component {
@@ -44,10 +41,10 @@ class Calendar extends Component {
       const { user } = this.context;
       return user 
         ? (
-                <>
+               
                     <div>
                         <Row type="flex" className="calendar-header">
-                            <Col span={4} offset={20} className="header-text">Open House Calendar</Col>
+                            <Col span={4} offset={40} className="header-text">Open House Calendar</Col>
                         </Row>
 
                         <Row>
@@ -56,7 +53,7 @@ class Calendar extends Component {
                             </Col>
                         </Row>
                     </div>
-                </>
+               
                  )
                  : <Redirect to="/login"/>
              

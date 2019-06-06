@@ -1,3 +1,33 @@
-body {
-    background-image: url(../../images/doorsopen0.PNG);
+.homeBody {
+    background-image: url(../../images/homeview.jpg);
+    height: 500px;
+    margin-top: 55px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
+
+.jumboText {
+    font-family: 'Lato', sans-serif;
+}
+.Main {
+    overflow:hidden;
+}
+
+.about {
+    position: absolute; /* or absolute */
+    top: 86%;
+    left: 25%;
+}
+
+section{
+    padding: 1rem;
+    opacity: .8;
+}
+.icon {
+    width: 60%;
+    height:70%;
+}
+
+

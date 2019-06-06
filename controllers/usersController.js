@@ -28,22 +28,26 @@ module.exports = {
               error: "password email not matching"
             });
           }
+        
 
-          const { firstName,selectedOption, profilePic, email, _id: id } = dbModel;
+          const { firstName,selectedOption, profilePic, email, _id: id, registrations } = dbModel;
 
-          const token = jwt.sign({email, id, firstName, selectedOption, profilePic}, 'my-website-secrete');
+          const token = jwt.sign({email, id, firstName, selectedOption, profilePic, registrations}, 'my-website-secrete');
           return res.json({
             id,
             firstName,
             selectedOption,
             profilePic,
             email,
+            registrations,
             token
           })
         })
       })
       .catch(err => res.status(422).json(err));
   },
+
+
   create: function(req, res) {
     const password = bcrypt.hashSync(req.body.password, 10);
     const {email, firstName, lastName, profilePic, company, selectedOption} = req.body;
@@ -52,4 +56,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
+
+  
 };

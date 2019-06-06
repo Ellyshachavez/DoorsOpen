@@ -7,8 +7,8 @@ import Login from "./components/Login";
 import Join from "./components/Join";
 import PassReq from "./components/PassReq";
 import NavBar from './components/NavBar';
+import Registration from './pages/Registration/registration';
 import {UserProvider} from './utils/UserContext';
-
 
 
 
@@ -29,6 +29,7 @@ class App extends Component {
             <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Calendar} />
+          <Route exact path="/register" component={Registration} />
           <Route path='/login' component={Login} />
           <Route path='/join' component={Join} />
           <Route path='/passwordrequest' component={PassReq}/>

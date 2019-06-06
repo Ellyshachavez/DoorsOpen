@@ -9,6 +9,14 @@ export default {
       }
     });
   },
+
+  getRegistrations: function(token) {
+    return axios.get("/api/registration", {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  },
   // Gets the book with the given id
   getEvent: function(id) {
     return axios.get("/api/calendar/" + id);
@@ -29,6 +37,10 @@ export default {
     return axios.post("/api/users/login", userData);
   },
  
+  register: function(id, data) {
+    return axios.put("/api/users/people/" + id, data);
+  },
+
   calendar: function(userData) {
     return axios.post("/api/users/calendar", userData);
   },
