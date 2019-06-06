@@ -1,3 +1,39 @@
-body {
+.homeBody {
     background-image: url(../../images/doorsopen0.PNG);
+    height: 60%;
+    width: 90%;
+    position: absolute;
+	top: -40px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin: auto;
+    object-fit: cover;
 }
+
+.Main {
+    overflow:hidden;
+}
+
+.about {
+    margin-top: 50%;
+    position: relative;
+	top:0%;
+	margin-bottom: 30%;
+	left: 25%;
+    right: 0;
+    padding-bottom: 0%;
+}
+
+section{
+    padding-bottom: 1em;
+    opacity: .8;
+}
+.icon {
+    width: 60%;
+    height: 60%;
+}
+
+

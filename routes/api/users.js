@@ -8,6 +8,6 @@ router.route("/join")
 
 
 router.route("/login")
-  .post(usersController.findOne, controller.findOne, controller.update);
+  .post(usersController.findOne);
 
 module.exports = router;
