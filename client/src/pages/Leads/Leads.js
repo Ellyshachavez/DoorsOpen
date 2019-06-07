@@ -32,11 +32,13 @@ class Leads extends Component {
         <Row>
           <Col size="md-3" />
           <Col size="md-6">
-            <table>
+            <table className="tableb">
               <tbody>
                 <tr>
                   <th>Name</th>
+                  <br/>
                   <th>Email</th>
+                  <br/>
                   <th>Phone Number</th>
                 </tr>
                 <tr>

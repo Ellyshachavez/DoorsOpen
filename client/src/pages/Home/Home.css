@@ -15,11 +15,7 @@
     overflow:hidden;
 }
 
-.about {
-    position: absolute; /* or absolute */
-    /* top: 86%;
-    left: 25%; */
-}
+
 
 section{
     padding: 1rem;

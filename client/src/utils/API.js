@@ -37,6 +37,10 @@ export default {
     return axios.post("/api/users/login", userData);
   },
  
+  getPeople: function(id) {
+    return axios.get("/api/people/" + id);
+  },
+
   register: function(id, data) {
     return axios.put("/api/users/people/" + id, data);
   },

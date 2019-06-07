@@ -53,7 +53,7 @@ class Home extends Component {
 <div className= "about">
 <Container>
   <Row>
-    <Col size="6"></Col>
+  <Col size="3"></Col>
     <section className="bg-primary" id="about">
           <div className="container">
               <div className="row">
