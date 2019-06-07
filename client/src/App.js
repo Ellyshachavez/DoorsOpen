@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Leads from "./pages/Leads/Leads";
 import Calendar from "./pages/Calendar/Calendar";
 import NoMatch from "./pages/NoMatch";
 import Login from "./components/Login";
@@ -33,6 +34,7 @@ class App extends Component {
           <Route path='/login' component={Login} />
           <Route path='/join' component={Join} />
           <Route path='/passwordrequest' component={PassReq}/>
+          <Route exact path="/leads" component={Leads} />
           <Route exact path="/calendar/:id" component={Calendar} />
           <Route path='/Calendar' component={Calendar} />
           <Route component={NoMatch} />

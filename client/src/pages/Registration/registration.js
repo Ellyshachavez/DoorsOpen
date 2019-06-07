@@ -26,14 +26,12 @@ class Registration extends Component {
 
   handleFormSubmit = () => {
     //event.preventDefault();
-    const { user } = this.context;
-    if (user) {
-    API.register(user.token, {
+
+    API.register("5cf5c3ba19a6ff3da052717c", {
       name: this.state.name,
       email: this.state.email,
       number: this.state.number
     }).catch(err => console.log(err));
-  }
   };
 
   render() {
@@ -52,7 +50,8 @@ class Registration extends Component {
             </Jumbotron>
             <div className="text-justify">
             <h2 >Take a look around, let the Agent or Loan Officer know if you have any questions.</h2>
-              <h3 className="text-justify">By providing your name, phone and e-mail you are allowing {user.firstName} to follow up with you after this Open House. </h3>
+              <p className="text-justify">By providing your name, phone and e-mail you are allowing {user.firstName} to follow up with you after this Open House. 
+              </p>
               </div>
               <br/>
             <form>

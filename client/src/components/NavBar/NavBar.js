@@ -33,6 +33,9 @@ class NavBar extends Component {
                 <div className="hello">Hello {user.firstName}! </div>
               </li>
               <li className="nav-item navbar-nav">
+                <Link className="nav-link js-scroll-trigger rightSide" to={"/leads/"}>Leads</Link>
+              </li>
+              <li className="nav-item navbar-nav">
                 <Link className="nav-link js-scroll-trigger rightSide" to={"/register/"}>Form</Link>
               </li>
               <li className="nav-item navbar-nav">
